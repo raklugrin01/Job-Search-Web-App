@@ -1,0 +1,29 @@
+{
+  "name": "job-search-master",
+  "version": "1.0.0",
+  "engines": {
+    "node": "16.13.2"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raklugrin01/Job-Search-WebApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raklugrin01/Job-Search-WebApp/issues"
+  },
+  "homepage": "https://github.com/raklugrin01/Job-Search-WebApp#readme",
+  "description": "",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.2",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1"
+  }
+}

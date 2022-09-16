@@ -1,0 +1,106 @@
+<form action="/search" method="POST">
+  <input type="hidden" id="jobname" name="jobtitle" value="<%= name  %>" />
+  <input type="hidden" id="jobpalce" name="place" value="<%= place %>" />
+  <input type="hidden" id="pagenum" name="pagenum" value="1" />
+  <input type="hidden" id="filterapplied" name="filterapplied" value="1">
+
+  <div class="container-fluid mt-100">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-4" style="flex: 0 0 41%;">
+        <div class="card">
+          <article class="filter-group">
+            <header class="card-header" style="background-color: red">
+              <a
+                href="#"
+                data-toggle="collapse"
+                data-target="#collapse_aside2"
+                data-abc="true"
+                aria-expanded="false"
+                class="collapsed"
+              >
+                <i class="icon-control fa fa-chevron-down"></i>
+                <h6 class="title">APPLY FILTER</h6>
+              </a>
+            </header>
+
+            <div class="filter-content collapse" id="collapse_aside2">
+              <div class="card-body">
+                <SPAn>sort by</SPAn>
+
+                <div class="select-job-items">
+                  <% if(sortbyy=="date") {%>
+                  <select name="sortbyy" id="sortbyy">
+                    <option value="date" selected="selected">Date</option>
+                    <option value="salary">Salary</option>
+                  </select>
+
+                  <% }else{ %>
+                  <select name="sortbyy" id="sortbyy">
+                    <option value="date">Date</option>
+                    <option value="salary" selected="selected">Salary</option>
+                  </select>
+
+                  <% } %>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <input
+                  type="range"
+                  class="custom-range"
+                  min="0"
+                  max="100"
+                  name=""
+                />
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label>Min Salary</label>
+                    <input
+                      class="form-control"
+                      name="minsalary"
+                      id="minsalary"
+                      placeholder="$0"
+                      type="number"
+                      value="<%= salarymin %>"
+                    />
+                  </div>
+                  <div class="form-group text-right col-md-6">
+                    <label>Max Salary</label>
+                    <input
+                      class="form-control"
+                      name="maxsalary"
+                      id="maxsalary"
+                      placeholder="$1,0000"
+                      type="number"
+                      value="<%= salarymax %>"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <div class="search-form">
+                  <button
+                    type="button submit"
+                    value="Submit"
+                    class="btn btn-info"
+                  >
+                    APPLY FILTERS
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="filter-content collapse"
+                id="collapse_aside3"
+          
+              >
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,111 @@
+<%- include('header')  -%> 
+
+        <!-- slider Area Start-->
+        <div class="slider-area ">
+            <!-- Mobile Menu -->
+            <div class="slider-active">
+                <div class="single-slider slider-height d-flex align-items-center" data-background="img/hero/h1_hero.jpg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-9 col-md-10">
+                                <div class="hero__caption">
+                                    <h1>Find your dream job easily here!</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Search Box -->
+                        <div class="row">
+                            <div class="col-xl-8">
+                                <!-- form -->
+                                <form action="/search" onclick="validateform();" class="search-box" method="POST">
+                                    <div class="input-form">
+                                        <input type="text" name="jobtitle" id="jobtitle" required minlength="3" maxlength="50" placeholder="Job Tittle or keyword">
+                                    </div>
+                                    <div class="input-form">
+                                        <input type="text" name="place" id="placename" required minlength="3" maxlength="50" placeholder="Any city in India">
+                                    </div>
+                                    <input type="hidden" id="pagenum" name="pagenum" value="1">
+                                    <input type="hidden" id="sortbyy" name="sortbyy" value="date">
+                                    <input type="hidden" id="fulltime" name="fulltime" value="1">
+                                    <input type="hidden" id="parttime" name="parttime" value="1">
+                                    <input type="hidden" id="minsalary" name="minsalary" value="10000">
+                                    <input type="hidden" id="maxsalary" name="maxsalary" value="100000000">
+                                    <input type="hidden" id="filterapplied" name="filterapplied" value="0">
+
+                                    <div class="search-form">
+                                        <button type="button submit" value="Submit" class="btn btn-info">Find Jobs</button>
+                                    </div>	
+                                    
+                                   
+                                        
+                                   	
+                                </form>	
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- slider Area End-->
+        
+
+        <!-- Featured_job_start -->
+        <section class="featured-job-area feature-padding">
+            <div class="container">
+                <!-- Section Tittle -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle text-center">
+         
+                            <h2>Recent Job</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+                        <!-- single-job-content -->
+                        <% jobs.forEach((data,index)=>{ %>
+
+                            <div class="single-job-items mb-30">
+                                <div class="job-items">
+                                    <div class="company-img">
+                                        <a href="<%= data.redirect_url %>" target="_blank" rel="noopener noreferrer"><img src="img/icon/preview.jpeg" alt="" width="85" height="85"></a>
+                                    </div>
+                                    <div class="job-tittle job-tittle2">
+                                        <a href="<%= data.redirect_url %>" target="_blank" rel="noopener noreferrer">
+                                            <h4><%= data.company.display_name %> </h4>
+                                        </a>
+                                        <ul>
+                                            <li><%= data.title.substring(0,20) %> </li>
+                                            <li><i class="fas fa-map-marker-alt"></i><%= data.location.display_name %> </li>
+               
+
+                                            <li>₹<%= parseInt(data.salary_min)/1000 %>k-₹<%=parseInt(data.salary_max)/1000 %>k</li>
+
+                                        </ul>
+                                    </div>
+
+                                </div>
+                                <div class="items-link items-link2 f-right">
+                                    <a href="<%= data.redirect_url %>" target="_blank" rel="noopener noreferrer">Details </a>
+                                    <span><%= data.created.substring(0,10) %> </span>
+                                </div>
+
+                            </div>
+
+
+                          <% }) %> 
+
+                        <!-- single-job-content -->
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Featured_job_end -->
+        
+       
+        <%- include('footer')  -%>  
+
+   
